@@ -1,0 +1,36 @@
+body{
+    font-size: 10px;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    margin: initial;
+    padding: 5%;
+}
+*{
+    box-sizing: border-box;
+}
+.modulo{
+    width: 80%;
+    margin: auto;
+    padding: 2%;
+
+    border: 2px solid grey;
+    border-radius: 5px;
+    
+   
+}
+
+.tempo{
+	font-size: 1.7em;
+}
+
+
+@media only screen and (min-width: 750px) {
+    .modulo{
+        width: 50%;
+    }
+}
+
+input{
+    display: block;
+    margin-bottom: 10px;
+}
