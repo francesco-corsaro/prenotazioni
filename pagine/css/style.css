@@ -30,6 +30,11 @@ body{
     }
 }
 
+.whenDay{
+	display:block;
+	width:100%;
+}
+
 input{
     display: block;
     margin-bottom: 10px;

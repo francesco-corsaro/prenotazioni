@@ -1,26 +1,37 @@
-var hourSelect = document.getElementById('hour');
-	hourSelect.style.borderRadius = "25px";
-	hourSelect.style.backgroundImage ="linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)";
-	hourSelect.style.padding="5px";
-	hourSelect.style.outline="none";
-	
-var option = document.createElement('option');
-    option.textContent = "Giorno";
-    option.value = "";
-    hourSelect.appendChild(option);
-	
-	for(var i = 1; i <= 31; i++) {
-	    var option = document.createElement('option');
-	    option.textContent = i;
-	    option.value = i;
-	    option.style.backgroundColor ="#8EC5FC";
-	    hourSelect.appendChild(option);
-  }
+function selectStyle(smthng, titolo, strt, fnsh){
+  smthng.style.borderRadius = "25px";
+  smthng.style.backgroundImage ="linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)";
+  smthng.style.padding="5px";
+  smthng.style.outline="none";
   
- var minuteSelect = document.getElementById('minute');
-  for(var i = 0; i <= 59; i++) {
-    var option = document.createElement('option');
-    option.textContent = (i < 10) ? ("0" + i) : i;
+  addEventListener("focus",()=>{
+    smthng.style.border="3px solid grey";
+  })
+
+  option = document.createElement('option');
+  option.textContent = titolo;
+  option.value = "";
+  smthng.appendChild(option);
+
+  for (var i = strt; i <= fnsh; i++) {
+    option = document.createElement('option');
+    option.textContent = i<10 ? '0'+i : i ;
     option.value = i;
-    minuteSelect.appendChild(option);
+    option.style.backgroundColor = "#8EC5FC";
+    smthng.appendChild(option);
   }
+
+
+}
+ var giorno = document.getElementById('day');
+ selectStyle(giorno,'Giorno',1,31);	
+ 
+ var mese = document.getElementById('month');
+ selectStyle(mese,'Mese',1,12);
+	
+var anno = document.getElementById('year');
+selectStyle(anno,'Anno',2020,2021);
+ 
+ 
+ 
+  

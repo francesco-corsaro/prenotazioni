@@ -16,17 +16,13 @@ session_start();
                 <input type="email" name="email" placeholder="Email">
                 <div class="tempo">
                     Indica in che giorno vorresti prenotare e clicca su 'Verifica' per controllare la disponibilita
-                    
-                    <div class="custom-select1" >
-                        <select id="hour" name="hour">
-                        
-                        </select>
-                     </div>
-
-                    <label for="minute">Minuti:</label>
-                    <select id="minute" name="minute">
-                    </select>
-                    <p></p>
+                   <div class="whenDay">
+                   		
+                       <select id="day" name="day"></select>
+                       <select id="month" name="month"></select>
+                       <select id="year" name="year"></select>
+                        <p></p>
+                    </div>
                     <script type="text/javascript" src="js/populate.js"></script>
                   <!--  <script src="js/styleSelect.js"></script> -->
                     
