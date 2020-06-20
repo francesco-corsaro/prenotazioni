@@ -11,7 +11,7 @@ session_start();
     <body>
     	<h1>Nome del luogo</h1>
         <div class="modulo">
-            <form method="POST" action="testPost.php">
+            <form method="POST" action="backEnd/dbUtility/select.php">
                 <input type="text" name="nome" placeholder="Inserisci il nome" class="marginInf">
                 <input type="email" name="email" placeholder="Email">
                 <div class="tempo">
