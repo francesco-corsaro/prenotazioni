@@ -9,20 +9,28 @@ body{
     box-sizing: border-box;
 }
 .modulo{
-    width: 80%;
+    width: 90%;
     margin: auto;
-    padding: 2%;
+    padding: 25px;
 
     border: 2px solid grey;
     border-radius: 5px;
     
    
 }
-
-.tempo{
-	font-size: 1.7em;
+.marginInf{
+    margin-bottom:15px ;
 }
-
+.marginSup{
+    margin-top: 15px;
+}
+.tempo{
+	font-size: 1.5em;
+}
+.etichetta{
+    font-size: 1em;
+    display: inline;
+}
 
 @media only screen and (min-width: 750px) {
     .modulo{
@@ -32,10 +40,45 @@ body{
 
 .whenDay{
 	display:block;
-	width:100%;
+    width:100%;
+    
+}
+
+select{
+   -webkit-appearance: none;
+   -moz-appearance:    none;
+   appearance:         none;
 }
 
 input{
     display: block;
     margin-bottom: 10px;
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid grey;
+    background-color: inherit;
+    font-size: 1.5em;
+}
+
+input[type=submit]{
+    background-color: inherit; 
+    border:2px solid #77779b;
+    border-radius:5px;
+    color: black;
+   /* padding: 16px 32px;*/
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: #77779b;
+    color: white;
 }
