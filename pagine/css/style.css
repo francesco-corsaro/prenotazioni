@@ -62,7 +62,8 @@ input{
     font-size: 1.5em;
 }
 
-input[type=submit]{
+.btn{
+    display: block;
     background-color: inherit; 
     border:2px solid #77779b;
     border-radius:5px;
@@ -78,7 +79,7 @@ input[type=submit]{
     cursor: pointer;
 }
 
-input[type=submit]:hover{
+.btn:hover{
     background-color: #77779b;
     color: white;
 }

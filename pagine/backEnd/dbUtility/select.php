@@ -20,11 +20,14 @@ function add0($var){
     }
     return  $var;
 }
-$year=$_POST['year'];
-$month=add0($_POST['month']);
-$day=add0($_POST['day']);
-$hour=add0($_POST['hour']);
-$minutes=add0($_POST['minute']);
+$riceived=$_GET['q'];
+$arr=array();
+$arr= explode(",", $riceived);
+$year=$arr[0];
+$month=$arr[1];
+$day=$arr[2];
+$hour=$arr[3];
+$minutes=$arr[4];
 
 $tabel=convert($month,$day,$hour);
 
@@ -44,10 +47,8 @@ if ($result->num_rows > 0) {
            $prenotazione="$day-$month-$year ". $row['prenotazione'];
            $ritardo=floor((strtotime("now")-strtotime($prenotazione))/60);    //calcola il ritardo della persona
            
-           if ($ritardo >15) {
-               echo 'ritardo';
-           }else {
-               ++ $persons ;
+           if ($ritardo <=15) {
+                ++ $persons ;
            }
         }
         
@@ -61,9 +62,10 @@ $conn->close();
 if ($persons>=$limitePosti) {
     echo ' Non ci sono posti disponibili';
 }else {
-    echo' Abbiamo la disponibilit‡, premi su conferma per prenotare';
+    echo' Abbiamo la disponibilit√†, premi su conferma per prenotare';
+    echo ' <input type="submit" class="btn" value="Conferma">   ';
 }
 
 
-echo '<br>tabella '.$tabel;
+//echo '<br>tabella '.$tabel;
 ?>

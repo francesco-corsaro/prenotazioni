@@ -17,6 +17,7 @@ session_start();
                 <div class="tempo">
                 <div class="etichetta marginInf">Seleziona la data e l'orario per verificare la disponibiltà</div>
                    <div class="whenDay marginSup">
+                       <p id="err"></p>
                    <div class="etichetta">Data: </div>
                        <select id="day" name="day"></select>
                        <select id="month" name="month"></select>
@@ -27,14 +28,13 @@ session_start();
                     <select id="hour" name="hour"></select> :
                     <select id="minute" name="minute"></select>
                     </div>
-                    <p></p>
-                    <script type="text/javascript" src="js/populate.js"></script>
-                  <!--  <script src="js/styleSelect.js"></script> -->
-                    
+                    <div class="btn" id='control'>controlla</div>
                 </div>
-
-                <input type="submit" value="Conferma">
+                <div id="txtHint" class="etichetta marginSup"></div>
+                
             </form>
         </div>
+        <script type="text/javascript" src="js/populate.js"></script>
+        <script src="js/disponibilita.js"></script> 
     </body>
 </html>

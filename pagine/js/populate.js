@@ -4,7 +4,7 @@ function selectStyle(smthng, titolo, strt, fnsh){
   smthng.style.padding="5px";
   smthng.style.outline="none";
   smthng.style.marginBottom ="1em";
-  smthng.style.appeare
+  
   
   addEventListener("focus",()=>{
     smthng.style.border="3px solid grey";
@@ -12,7 +12,7 @@ function selectStyle(smthng, titolo, strt, fnsh){
 
   option = document.createElement('option');
   option.textContent = titolo;
-  option.value = "";
+  option.value = "0";
   smthng.appendChild(option);
 
   for (var i = strt; i <= fnsh; i++) {
