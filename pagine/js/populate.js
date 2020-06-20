@@ -3,6 +3,8 @@ function selectStyle(smthng, titolo, strt, fnsh){
   smthng.style.backgroundImage ="linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)";
   smthng.style.padding="5px";
   smthng.style.outline="none";
+  smthng.style.marginBottom ="1em";
+  smthng.style.appeare
   
   addEventListener("focus",()=>{
     smthng.style.border="3px solid grey";
@@ -32,6 +34,10 @@ function selectStyle(smthng, titolo, strt, fnsh){
 var anno = document.getElementById('year');
 selectStyle(anno,'Anno',2020,2021);
  
+ var ore=document.getElementById('hour');
+ selectStyle(ore,'Ore',8,18);
  
+ var minuti=document.getElementById('minute');
+ selectStyle(minuti,'Minuti',0,59);
  
   
