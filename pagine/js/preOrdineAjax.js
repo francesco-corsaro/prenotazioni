@@ -3,7 +3,7 @@
 let nome=document.getElementById('nome');
 let email=document.getElementById('email');
 
-function booking(){
+function booking(contenitore,contenuto){
     var xmlhttp = new XMLHttpRequest();
         
     xmlhttp.onreadystatechange = function () {
@@ -14,17 +14,17 @@ function booking(){
             }
     };
     
-    xmlhttp.open("GET", "backEnd/preOrdine.php?" + contenitore +"=" + contenuto, true);
+    xmlhttp.open("GET", "backEnd/preOridne.php?" + contenitore +"=" + contenuto, true);
     xmlhttp.send();
 }
 
-prenota.addEventListener('click',() => {
+function book(){
     
     if (year.value!=0 && month.value!=0 && day.value!=0 && hour.value!=0 && minute.value!=0 && nome.value!="" && email.value!="" ) {
         objSended=[year.value,month.value,day.value,hour.value,minute.value,nome.value,email.value];
         booking('q', objSended);
-        console.log(year.value);
+        
     }else{
         document.getElementById('err1').innerText="Per favore, compila tutti i campi";
     }
-});
+};

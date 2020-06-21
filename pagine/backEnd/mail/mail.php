@@ -2,7 +2,7 @@
 function sendAemail($destinatario,$corpo) {
     
 
-$mittente='corsaro.francesco.psi@gmail.com';
+$mittente='gingipc@gmail.com';
 
 $oggetto='Prenotazione posto';
 
@@ -20,7 +20,7 @@ mail($destinatario, $oggetto, $corpo,  implode("\r\n", $headers));
 
 //francesco.corsaro.psi@gmail.com' 
 
-}
+};
 
 
 ?>
