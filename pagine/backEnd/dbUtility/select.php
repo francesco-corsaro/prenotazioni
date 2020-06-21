@@ -23,12 +23,16 @@ function add0($var){
 $riceived=$_GET['q'];
 $arr=array();
 $arr= explode(",", $riceived);
+for ($i = 0; $i < count($arr); $i++) {
+    $arr[$i]=add0($arr[$i]);
+}
+
 $year=$arr[0];
 $month=$arr[1];
 $day=$arr[2];
 $hour=$arr[3];
 $minutes=$arr[4];
-$minutes=$minutes < 10 ? '0'.$minutes : $minutes;
+//$minutes=$minutes < 10 ? '0'.$minutes : $minutes;
 
 $tabel=convert($month,$day,$hour);
 
@@ -42,7 +46,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        if ($row['prenotazione'] !=0 && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
+        if ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
            ++ $persons;
         }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
            $prenotazione="$day-$month-$year ". $row['prenotazione'];

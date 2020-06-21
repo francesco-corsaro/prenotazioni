@@ -35,13 +35,22 @@ for ($i=0 ; $i < 7 ; $i++) {
     } 
 }
 
+function add0($var){
+    if ($var<10) {
+        $var='0'.$var;
+    }
+    return  $var;
+}
+
 $year=$arr[0];
-$month=$arr[1];
-$day=$arr[2];
-$hour=$arr[3];
-$minutes=$arr[4];
+$month=add0($arr[1]);
+$day=add0($arr[2]);
+$hour=add0($arr[3]);
+$minutes=add0($arr[4]);
 $nome=$arr[5];
 $email=$arr[6];
+
+$oraPrenotazione=$hour.':'.$minutes; //da mandare nell'URL (ancora non inserito nel'url)
 
 if ($clean==1) {
     
