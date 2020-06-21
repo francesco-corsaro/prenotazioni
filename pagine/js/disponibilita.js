@@ -6,6 +6,7 @@ let hour=document.getElementById('hour');
 let minute=document.getElementById('minute');
 
 let objSended;
+let prenota;
 
 function showDispo(contenitore,contenuto) {
      
@@ -17,6 +18,7 @@ function showDispo(contenitore,contenuto) {
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
+                prenota=document.getElementById('prenota');
             }
         };
         xmlhttp.open("GET", "backEnd/dbUtility/select.php?" + contenitore +"=" + contenuto, true);
@@ -32,6 +34,7 @@ control.addEventListener('click',() => {
         objSended=[year.value,month.value,day.value,hour.value,minute.value];
         showDispo('q', objSended);
         document.getElementById('err').innerText="";
+        
     }else{
         document.getElementById('err').innerText="Seleziona la data";
     }

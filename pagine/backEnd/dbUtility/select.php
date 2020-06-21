@@ -65,7 +65,7 @@ if ($persons>=$limitePosti) {
     echo '<div class="etichetta"> Non ci sono posti disponibili, seleziona altre date</div>';
 }else {
     echo'<p class="etichetta marginSup marginInf"> Il posto è disponibile per giorno '.$data.'</p>';
-    echo ' <input type="submit" class="btn" value="Prenota">   ';
+    echo ' <div class="btn" id="prenota">Prenota</div>   ';
 }
 
 
