@@ -28,9 +28,9 @@ session_start();
                     <select id="hour" name="hour"></select> :
                     <select id="minute" name="minute"></select>
                     </div>
-                    <div class="btn" id='control'>controlla</div>
+                    <div class="btn" id='control'>Verifica disponibilità</div>
                 </div>
-                <div id="txtHint" class="etichetta marginSup"></div>
+                <div id="txtHint"></div>
                 
             </form>
         </div>

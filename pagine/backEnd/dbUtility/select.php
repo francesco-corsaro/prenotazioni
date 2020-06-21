@@ -28,6 +28,7 @@ $month=$arr[1];
 $day=$arr[2];
 $hour=$arr[3];
 $minutes=$arr[4];
+$minutes=$minutes < 10 ? '0'.$minutes : $minutes;
 
 $tabel=convert($month,$day,$hour);
 
@@ -59,11 +60,12 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 
+$data=$day.'-'.$month.'-'.$year.' '.$hour.':'.$minutes;
 if ($persons>=$limitePosti) {
-    echo ' Non ci sono posti disponibili';
+    echo '<div class="etichetta"> Non ci sono posti disponibili, seleziona altre date</div>';
 }else {
-    echo' Abbiamo la disponibilità, premi su conferma per prenotare';
-    echo ' <input type="submit" class="btn" value="Conferma">   ';
+    echo'<p class="etichetta marginSup marginInf"> Il posto è disponibile per giorno '.$data.'</p>';
+    echo ' <input type="submit" class="btn" value="Prenota">   ';
 }
 
 
