@@ -1,6 +1,7 @@
 <?php
 session_start();
 $limitePosti=6; //In questa variabile si setta il num massimo di ospiti
+
 //riceve gli input
 
 $riceived=htmlspecialchars($_GET['q']);
@@ -68,6 +69,7 @@ if ($clean==1) {
         
         return $result;
     };
+    
     $tabel=convert($month,$day,$hour);
     $persons=0;
     
@@ -114,13 +116,13 @@ if ($clean==1) {
     }elseif ($persons == 0){
         //Crea una tabella (scrivere il programma)
         echo 'crea una tabella e inserisce i dati';
-        //include 'dbUtility/preOrdineInsert.php';
+       // include 'dbUtility/preOrdineInsert.php';
     }elseif ($persons>=$limitePosti){
         echo '<div class="etichetta"> Non ci sono posti disponibili, seleziona altre date</div>';
         
     }elseif ($persons < $limitePosti){
-        echo 'inserisce i dati';
-        //include 'dbUtility/preOrdineInsert.php';
+        
+        include 'dbUtility/preOrdineInsert.php';
     }
     
     //se non esiste la tabella la crea
@@ -142,15 +144,15 @@ if ($clean==1) {
             </div>';
 
     sendAemail($email,$corpo);
-
+ */
     echo '<p class="etichetta marginSup marginInf"> Abbiamo inviato una e-mail all\' indirizzo '.$email.'
                 <br>apri l\'e-email per confermare la prenotazione.
                 <br> Se non ti appare controlla nella cartella spam 
                 <br> ATTENZIONE!! Per completare la prenotazione è necessario confermare la ricezione dell\'email</p>';
- */   
+   
     
     
 
 } else{
-    echo '<br>le variabile non sono pulite';
+    echo '<br>le variabile non sono valide';
 }
