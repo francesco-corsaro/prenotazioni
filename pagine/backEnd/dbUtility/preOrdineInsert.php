@@ -18,4 +18,3 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 
-echo 'inserisce i dati';

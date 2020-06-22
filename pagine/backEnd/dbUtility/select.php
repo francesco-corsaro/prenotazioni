@@ -75,6 +75,7 @@ $conn->close();
 
 
 
+
 $data=$day.'-'.$month.'-'.$year.' '.$hour.':'.$minutes;
 if ($persons==9999) {
     echo '<p class="etichetta marginSup marginInf"><br>Controlla l\'e-mail</p>';

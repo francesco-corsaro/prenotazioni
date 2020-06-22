@@ -16,8 +16,10 @@ uscita VARCHAR(12) NOT NULL DEFAULT '00',
 oraRegistrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
+
 if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully";
+    //echo "Table MyGuests created successfully";
+    echo "<br> ";
 } else {
     echo "Error creating table: " . $conn->error;
 }
