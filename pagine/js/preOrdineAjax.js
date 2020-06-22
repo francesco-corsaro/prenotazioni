@@ -1,7 +1,7 @@
 
 
 let nome=document.getElementById('nome');
-let email=document.getElementById('email');
+
 
 function booking(contenitore,contenuto){
     var xmlhttp = new XMLHttpRequest();

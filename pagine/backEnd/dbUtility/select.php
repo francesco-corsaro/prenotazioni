@@ -23,7 +23,7 @@ function add0($var){
 $riceived=$_GET['q'];
 $arr=array();
 $arr= explode(",", $riceived);
-for ($i = 0; $i < count($arr); $i++) {
+for ($i = 0; $i < 5; $i++) {
     $arr[$i]=add0($arr[$i]);
 }
 
@@ -32,6 +32,7 @@ $month=$arr[1];
 $day=$arr[2];
 $hour=$arr[3];
 $minutes=$arr[4];
+$email=$arr[5];
 //$minutes=$minutes < 10 ? '0'.$minutes : $minutes;
 
 $tabel=convert($month,$day,$hour);
@@ -46,16 +47,22 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        if ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
-           ++ $persons;
-        }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
-           $prenotazione="$day-$month-$year ". $row['prenotazione'];
-           $ritardo=floor((strtotime("now")-strtotime($prenotazione))/60);    //calcola il ritardo della persona
-           
-           if ($ritardo <=15) {
-                ++ $persons ;
-           }
-        }
+           if ($row['email']==$email) {
+               echo '<p class="etichetta marginSup marginInf">Hai già effettuato la registrazione per questo giorno</p>' ;
+               $persons=9999;
+               $conn->close();
+               break;
+           }  
+                if ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
+                   ++ $persons;
+                }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
+                   $prenotazione="$day-$month-$year ". $row['prenotazione'];
+                   $ritardo=floor((strtotime("now")-strtotime($prenotazione))/60);    //calcola il ritardo della persona
+                   
+                   if ($ritardo <=15) {
+                        ++ $persons ;
+                   }
+                }
         
     }
 }else {
@@ -65,8 +72,11 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 $data=$day.'-'.$month.'-'.$year.' '.$hour.':'.$minutes;
-if ($persons>=$limitePosti) {
+if ($persons==9999) {
+    echo '<p class="etichetta marginSup marginInf"><br>Controlla l\'e-mail</p>';
+}elseif ($persons>=$limitePosti){
     echo '<div class="etichetta"> Non ci sono posti disponibili, seleziona altre date</div>';
+    
 }else {
     echo'<p class="etichetta marginSup marginInf"> Il posto Ã¨ disponibile per giorno '.$data.'</p>';
     echo ' <div class="btn" id="prenota" onclick="book()">Prenota</div>   ';

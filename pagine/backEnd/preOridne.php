@@ -57,6 +57,36 @@ $oraPrenotazione=$hour.':'.$minutes; //da mandare nell'URL (ancora non inserito 
 
 if ($clean==1) {
     
+    function convert($var1,$var2,$var3) {
+        
+        $result=$var1.$var2;
+        if ($var3<14) {
+            $result=$result.'Mat';
+        }else {
+            $result=$result.'Pom';
+        }
+        
+        return $result;
+    };
+    $tabel=convert($month,$day,$hour);
+    
+    //inserisce gli input nella tabella
+    
+    include "dbUtility/connect.php";
+    
+    $sql="SELECT * FROM $tabel ";
+    
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()){
+            
+        }
+    }
+    
+    //se non esiste la tabella la crea
+    
+    //inserisce gli input nella tabell
 
     //Invia email
     include 'mail/mail.php';
@@ -79,13 +109,7 @@ if ($clean==1) {
                 <br> Se non ti appare controlla nella cartella spam 
                 <br> ATTENZIONE!! Per completare la prenotazione è necessario confermare la ricezione dell\'email</p>';
     
-    //inserisce gli input nella tabella
     
-    
-    
-    //se non esiste la tabella la crea
-    
-    //inserisce gli input nella tabell
     
 
 } else{
