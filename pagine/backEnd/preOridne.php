@@ -114,8 +114,9 @@ if ($clean==1) {
     if ($persons==9999){  //Non carica nulla
         echo '<p class="etichetta marginSup marginInf"><br>Controlla l\'e-mail</p>';
     }elseif ($persons == 0){
-        //Crea una tabella (scrivere il programma)
+        //Crea una tabella se $row['confPrenota']!='inAttesa' (scrivere il programma)
         echo 'crea una tabella e inserisce i dati';
+        
        // include 'dbUtility/preOrdineInsert.php';
     }elseif ($persons>=$limitePosti){
         echo '<div class="etichetta"> Non ci sono posti disponibili, seleziona altre date</div>';
@@ -125,9 +126,7 @@ if ($clean==1) {
         include 'dbUtility/preOrdineInsert.php';
     }
     
-    //se non esiste la tabella la crea
     
-    //inserisce gli input nella tabell
 /*
     //Invia email
     include 'mail/mail.php';
