@@ -1,5 +1,8 @@
-body{
+html{
     font-size: 10px;
+}
+body{
+    font-size: 1.5rem;
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     margin: initial;
@@ -25,10 +28,10 @@ body{
     margin-top: 15px;
 }
 .tempo{
-	font-size: 1.5em;
+	padding: 2px;
 }
 .etichetta{
-    font-size: 1em;
+    position: relative;
     display: inline;
 }
 
@@ -59,10 +62,11 @@ input{
     border-left: none;
     border-bottom: 1px solid grey;
     background-color: inherit;
-    font-size: 1.5em;
+    
 }
 
-input[type=submit]{
+.btn{
+    display: block;
     background-color: inherit; 
     border:2px solid #77779b;
     border-radius:5px;
@@ -71,14 +75,14 @@ input[type=submit]{
     padding: 5px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 1.2em;
-    margin: 4px 2px;
+    
+    width: auto;
+    margin: 10px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
 }
 
-input[type=submit]:hover{
+.btn:hover{
     background-color: #77779b;
     color: white;
 }
