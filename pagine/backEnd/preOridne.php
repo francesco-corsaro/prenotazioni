@@ -72,7 +72,7 @@ if ($clean==1) {
     
     $tabel=convert($month,$day,$hour);
     $persons=0;
-    
+    $tabelExsist='no';
     //Il seguente passaggio richiama la tabella scelta dall'utente
     //e restituisce la variabile $person in modo da sapere cosa fare
     
@@ -90,7 +90,9 @@ if ($clean==1) {
                 $conn->close();
                 break;
             } 
-            
+            if ($row['contatore']>=1) {
+                $tabelExsist='si';
+            }
             elseif ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
                 ++ $persons;
             }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
@@ -115,6 +117,12 @@ if ($clean==1) {
         echo '<p class="etichetta marginSup marginInf"><br>Controlla l\'e-mail</p>';
     }elseif ($persons == 0){
         //Crea una tabella se $row['confPrenota']!='inAttesa' (scrivere il programma)
+        if ( $tabelExsist=='no') {
+           include 'dbUtility/createTable.php'; 
+        }
+        
+        include 'dbUtility/preOrdineInsert.php';
+        
         echo 'crea una tabella e inserisce i dati';
         
        // include 'dbUtility/preOrdineInsert.php';

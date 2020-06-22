@@ -39,6 +39,7 @@ $tabel=convert($month,$day,$hour);
 
 $persons=0;
 
+
 include "connect.php";
 
 
@@ -52,7 +53,8 @@ if ($result->num_rows > 0) {
                $persons=9999;
                $conn->close();
                break;
-           }  
+           } 
+           
                 if ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
                    ++ $persons;
                 }elseif ($row['prenotazione'] !='00' && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
