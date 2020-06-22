@@ -13,8 +13,8 @@ function convert($var1,$var2,$var3) {
     return $result;
 };
 
-$tabel='0621Mat';//convert($month,$day,$hour);
-$confPrenotazione='si';
+$tabel='0622Mat';//convert($month,$day,$hour);
+$confPrenotazione='inAttesa';
 
 $email='prova@insert';
 $nome='prova insert';

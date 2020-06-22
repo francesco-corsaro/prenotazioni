@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
            }  
                 if ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
                    ++ $persons;
-                }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
+                }elseif ($row['prenotazione'] !='00' && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
                    $prenotazione="$day-$month-$year ". $row['prenotazione'];
                    $ritardo=floor((strtotime("now")-strtotime($prenotazione))/60);    //calcola il ritardo della persona
                    
@@ -70,6 +70,8 @@ if ($result->num_rows > 0) {
     $err=$conn->error;
 }
 $conn->close();
+
+
 
 $data=$day.'-'.$month.'-'.$year.' '.$hour.':'.$minutes;
 if ($persons==9999) {

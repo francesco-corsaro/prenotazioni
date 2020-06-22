@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$limitePosti=6; //In questa variabile si setta il num massimo di ospiti
 //riceve gli input
 
 $riceived=htmlspecialchars($_GET['q']);
@@ -69,8 +69,10 @@ if ($clean==1) {
         return $result;
     };
     $tabel=convert($month,$day,$hour);
+    $persons=0;
     
-    //inserisce gli input nella tabella
+    //Il seguente passaggio richiama la tabella scelta dall'utente
+    //e restituisce la variabile $person in modo da sapere cosa fare
     
     include "dbUtility/connect.php";
     
@@ -80,14 +82,51 @@ if ($clean==1) {
     
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
+            if ($row['email']==$email) {
+                echo '<p class="etichetta marginSup marginInf">Hai già effettuato la registrazione per questo giorno</p>' ;
+                $persons=9999;
+                $conn->close();
+                break;
+            } 
+            
+            elseif ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
+                ++ $persons;
+            }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
+                $prenotazione="$day-$month-$year ". $row['prenotazione'];
+                $ritardo=floor((strtotime("now")-strtotime($prenotazione))/60);    //calcola il ritardo della persona
+                
+                if ($ritardo <=15) {
+                    ++ $persons ;
+                }
+            }
             
         }
+    }else {
+        $persons=0;
+        $err=$conn->error;
+    }
+    $conn->close();
+    
+    //In base al valore di $person si avranno differenti opzioni
+    
+    if ($persons==9999){  //Non carica nulla
+        echo '<p class="etichetta marginSup marginInf"><br>Controlla l\'e-mail</p>';
+    }elseif ($persons == 0){
+        //Crea una tabella (scrivere il programma)
+        echo 'crea una tabella e inserisce i dati';
+        //include 'dbUtility/preOrdineInsert.php';
+    }elseif ($persons>=$limitePosti){
+        echo '<div class="etichetta"> Non ci sono posti disponibili, seleziona altre date</div>';
+        
+    }elseif ($persons < $limitePosti){
+        echo 'inserisce i dati';
+        //include 'dbUtility/preOrdineInsert.php';
     }
     
     //se non esiste la tabella la crea
     
     //inserisce gli input nella tabell
-
+/*
     //Invia email
     include 'mail/mail.php';
     $data=$day.'-'.$month.'-'.$year.' '.$hour.':'.$minutes;
@@ -108,7 +147,7 @@ if ($clean==1) {
                 <br>apri l\'e-email per confermare la prenotazione.
                 <br> Se non ti appare controlla nella cartella spam 
                 <br> ATTENZIONE!! Per completare la prenotazione è necessario confermare la ricezione dell\'email</p>';
-    
+ */   
     
     
 
