@@ -26,7 +26,7 @@ $stmt->bind_param("sss", $email, $nome, $confPrenotazione);
 
 $stmt->execute();
 
-echo $stmt->error;
+//echo $stmt->error;
 
 $stmt->close();
 $conn->close();

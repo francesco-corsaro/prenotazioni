@@ -14,10 +14,11 @@ $clean=0;
 for ($i=0 ; $i < 7 ; $i++) {
     if ($i<5) {
         
-        if (filter_var($arr[$i], FILTER_VALIDATE_INT) === 0 ||!filter_var($arr[$i], FILTER_VALIDATE_INT) === false) {
+        if (filter_var($arr[$i], FILTER_VALIDATE_INT) === 0 || !filter_var($arr[$i], FILTER_VALIDATE_INT) === false) {
             $clean=1;
         } else {
             $clean=0;
+            echo 'Giorno non valido';
         break;
         }
     } elseif ($i==5) {
@@ -25,11 +26,13 @@ for ($i=0 ; $i < 7 ; $i++) {
     }else {
         $arr[$i]  = filter_var($arr[$i] , FILTER_SANITIZE_EMAIL);
 
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $clean=1;
-        } else {
+        if (!filter_var($arr[$i], FILTER_VALIDATE_EMAIL) ) {
             $clean=0;
-        break;
+            echo $arr[$i].' non valido';
+            break;
+            
+        } else {
+            $clean=1;
            }
 
     } 
@@ -74,10 +77,17 @@ if ($clean==1) {
     echo '<p class="etichetta marginSup marginInf"> Abbiamo inviato una e-mail all\' indirizzo '.$email.'
                 <br>apri l\'e-email per confermare la prenotazione.
                 <br> Se non ti appare controlla nella cartella spam 
-                <br> ATTENZIONE!! Per completare la prenotazione Ã¨ necessario confermare la ricezione dell\'email</p>';
+                <br> ATTENZIONE!! Per completare la prenotazione è necessario confermare la ricezione dell\'email</p>';
+    
+    //inserisce gli input nella tabella
+    
+    
+    
     //se non esiste la tabella la crea
     
     //inserisce gli input nella tabell
-    //NB: deve inserire l'orario nella colonna  pre-ordine
+    
 
+} else{
+    echo '<br>le variabile non sono pulite';
 }
