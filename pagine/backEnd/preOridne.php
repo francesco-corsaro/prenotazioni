@@ -93,7 +93,7 @@ if ($clean==1) {
             if ($row['contatore']>=1) {
                 $tabelExsist='si';
             }
-            elseif ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
+            if ($row['prenotazione'] !='00' && $row['presenza'] != '00' &&  $row['uscita'] == '00') {
                 ++ $persons;
             }elseif ($row['prenotazione'] !=0 && $row['presenza'] == '00' &&  $row['uscita'] == '00'){
                 $prenotazione="$day-$month-$year ". $row['prenotazione'];
