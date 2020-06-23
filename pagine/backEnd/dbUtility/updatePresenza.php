@@ -1,5 +1,5 @@
 <?php
-function update_presenzaUscita( $tabel,$email,$colonna,$riga) {
+function update_presenzaUscita( $tabel,$email,$colonna,$colonna2,$riga,$riga2) {
     
     $servername = "localhost";
     $username = "mytraining";
@@ -15,18 +15,17 @@ function update_presenzaUscita( $tabel,$email,$colonna,$riga) {
     }
     
     // prepare and bind
-    $stmt = $conn->prepare("UPDATE $tabel SET $colonna=? WHERE email=? ");
-    $stmt->bind_param("ss",$riga,$email);
+    $stmt = $conn->prepare("UPDATE $tabel SET $colonna=?, $colonna2=? WHERE email=? ");
+    $stmt->bind_param("sss",$riga,$riga2,$email);
     
     
     $stmt->execute();
-    echo '<br>'.$stmt->error;
-    echo'Updated <br>'. $conn->connect_error;
+    //echo '<br>'.$stmt->error;
+    //echo'Updated <br>'. $conn->connect_error;
     
     $stmt->close();
     $conn->close();
 }
 
-update_presenzaUscita('0623Pom','francescc@gmail.com','uscita','21:00');
 
 ?>

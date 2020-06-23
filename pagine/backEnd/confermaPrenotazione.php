@@ -34,7 +34,7 @@ if ($time===1) {
 
 //aggiungo le altre variabili per l'inserimento nel database
 
-//$tabel=date("H")>14? date("m").date("d").'Pom': date("m").date("d").'Mat';
+
 
 //verifico se c'è ancora la disponibilità dei posti
 if ($clean == 1) {
