@@ -54,7 +54,7 @@ $minutes=add0($arr[4]);
 $nome=$arr[5];
 $email=$arr[6];
 
-$oraPrenotazione=$hour.':'.$minutes; //da mandare nell'URL (ancora non inserito nel'url)
+$oraPrenotazione=$hour.':'.$minutes; //da mandare nell'URL ()
 
 if ($clean==1) {
     
@@ -135,7 +135,7 @@ if ($clean==1) {
     }
     
     
-/*
+
     //Invia email
     include 'mail/mail.php';
     $data=$day.'-'.$month.'-'.$year.' '.$hour.':'.$minutes;
@@ -146,12 +146,12 @@ if ($clean==1) {
                     <p>Ciao '.$nome.',<br>clicca su Prenota per completare l\'operazione:</p>
                     Stai prenotando un posto per giorno: '.$data.'
                     
-                    <a href="http://mytraining.altervista.org/prenotazioni/pagine/confermaPrenotazione.php?email='.$email.'" style="  text-decoration: none;display: block; width: 20%;padding: 6px; margin-top: 30px;margin-left: auto; margin-right: auto; color: whitesmoke ;background-color: #c4c487;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);border-radius: 25px; ">Prenota</a>
+                    <a href="http://mytraining.altervista.org/prenotazioni/pagine/confermaPrenotazione.php?email='.$email.'&oraPrenotazione='.$oraPrenotazione.'&tabel='.$tabel.'" style="  text-decoration: none;display: block; width: 20%;padding: 6px; margin-top: 30px;margin-left: auto; margin-right: auto; color: whitesmoke ;background-color: #c4c487;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);border-radius: 25px; ">Prenota</a>
                 </div>
             </div>';
 
     sendAemail($email,$corpo);
- */
+
     echo '<p class="etichetta marginSup marginInf"> Abbiamo inviato una e-mail all\' indirizzo '.$email.'
                 <br>apri l\'e-email per confermare la prenotazione.
                 <br> Se non ti appare controlla nella cartella spam 

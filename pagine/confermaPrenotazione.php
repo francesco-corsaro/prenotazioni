@@ -10,8 +10,11 @@ session_start();
     </head>
     <body>
     	<h1>Nome del luogo</h1>
-        <div class="modulo">
-            <form method="POST" action="backEnd/dbUtility/select.php">
+         <div class="modulo">
+         <?php 
+         include 'backEnd/confermaPrenotazione.php';
+         ?>
+        <!--    <form method="POST" action="backEnd/dbUtility/select.php">
                 
                 <input type="email" name="email" placeholder="Email">
                 
@@ -19,7 +22,7 @@ session_start();
 
                 <div id="txtHint"></div>
                 
-            </form>
+            </form> -->
         </div>
         <script type="text/javascript" src="js/populate.js"></script>
         <script src="js/disponibilita.js"></script> 

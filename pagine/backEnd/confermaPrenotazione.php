@@ -5,9 +5,9 @@ $limitePosti=6;
 
 //riceve gli input
 
-$email='francesco.c@gmail.com';//htmlspecialchars($_GET['email']);
-$oraPrenotazione='19:30';//htmlspecialchars($_GET['oraPrenotazione']);
-$tabel='0623Pom';//htmlspecialchars($_GET['tabel']);
+$email=htmlspecialchars($_GET['email']);
+$oraPrenotazione=htmlspecialchars($_GET['oraPrenotazione']);
+$tabel=htmlspecialchars($_GET['tabel']);
 
 
 //pulisce gli input
