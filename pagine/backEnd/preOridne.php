@@ -123,7 +123,7 @@ if ($clean==1) {
         
         include 'dbUtility/preOrdineInsert.php';
         
-        echo 'crea una tabella e inserisce i dati';
+        //echo 'crea una tabella e inserisce i dati';
         
        // include 'dbUtility/preOrdineInsert.php';
     }elseif ($persons>=$limitePosti){
