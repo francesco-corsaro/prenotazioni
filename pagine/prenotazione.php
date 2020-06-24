@@ -40,5 +40,6 @@ session_start();
         <script type="text/javascript" src="js/populate.js"></script>
         <script src="js/disponibilita.js"></script> 
         <script src="js/preOrdineAjax.js"></script>
+        <div class="etichetta">All right reserved by <b>GingiDevelop</b> 2020 <div>
     </body>
 </html>

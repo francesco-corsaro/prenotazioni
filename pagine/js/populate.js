@@ -12,7 +12,7 @@ function selectStyle(smthng, titolo, strt, fnsh){
 
   option = document.createElement('option');
   option.textContent = titolo;
-  option.value = "0";
+  option.value = "-1";
   smthng.appendChild(option);
 
   for (var i = strt; i <= fnsh; i++) {
@@ -25,11 +25,15 @@ function selectStyle(smthng, titolo, strt, fnsh){
 
 
 }
+  var d= new Date();
  var giorno = document.getElementById('day');
- selectStyle(giorno,'Giorno',1,31);	
+ var oggi=d.getDate() < 25 ? d.getDate() : 0; 
+ selectStyle(giorno,'Giorno',oggi,31);	
  
  var mese = document.getElementById('month');
- selectStyle(mese,'Mese',1,12);
+ 
+var month=d.getMonth()+1;
+ selectStyle(mese,'Mese',month,12);
 	
 var anno = document.getElementById('year');
 selectStyle(anno,'Anno',2020,2021);
