@@ -20,7 +20,7 @@ function booking(contenitore,contenuto){
 
 function book(){
     
-    if (year.value!=0 && month.value!=0 && day.value!=0 && hour.value!=0 && minute.value!=0 && nome.value!="" && email.value!="" ) {
+    if (year.value>=0 && month.value>=0 && day.value>=0 && hour.value>=0 && minute.value>=0 && nome.value!="" && email.value!="" ) {
         objSended=[year.value,month.value,day.value,hour.value,minute.value,nome.value,email.value];
         booking('q', objSended);
         
