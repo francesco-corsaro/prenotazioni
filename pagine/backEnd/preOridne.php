@@ -85,7 +85,7 @@ if ($clean==1) {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()){
             if ($row['email']==$email) {
-                echo '<p class="etichetta marginSup marginInf">Hai già effettuato la registrazione per questo giorno</p>' ;
+                echo '<p class="etichetta marginSup marginInf">Hai giï¿½ effettuato la registrazione per questo giorno</p>' ;
                 $persons=9999;
                 $conn->close();
                 break;
@@ -152,10 +152,9 @@ if ($clean==1) {
 
     sendAemail($email,$corpo);
 
-    echo '<p class="etichetta marginSup marginInf"> Abbiamo inviato una e-mail all\' indirizzo '.$email.'
-                <br>apri l\'e-email per confermare la prenotazione.
-                <br> Se non ti appare controlla nella cartella spam 
-                <br> ATTENZIONE!! Per completare la prenotazione è necessario confermare la ricezione dell\'email</p>';
+    echo '<p class="etichetta marginSup marginInf">
+                Per completare la prenotazione Ã¨ necessario fare clicl sul link che riceverai all\'indirizzo '.$email.'
+                </p>';
    
     
     

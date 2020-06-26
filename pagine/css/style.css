@@ -34,7 +34,14 @@ body{
     position: relative;
     display: inline;
 }
-
+footer{
+    position: absolute;
+    bottom: 0em;
+    display: grid;
+    justify-content: center;
+    /*margin-left: auto;
+    margin-right: auto;*/
+}
 @media only screen and (min-width: 750px) {
     .modulo{
         width: 50%;

@@ -32,8 +32,8 @@ function selectStyle(smthng, titolo, strt, fnsh){
  
  var mese = document.getElementById('month');
  
-var month=d.getMonth()+1;
- selectStyle(mese,'Mese',month,12);
+var oggiMese=d.getMonth()+1;
+ selectStyle(mese,'Mese',oggiMese,12);
 	
 var anno = document.getElementById('year');
 selectStyle(anno,'Anno',2020,2021);
